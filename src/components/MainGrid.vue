@@ -1,11 +1,15 @@
 <template>
   <div>
-    <div v-for="item in discList" :key="item.id">
-      id {{ item.id }} poster{{ item.poster }} title{{ item.title }} author{{
-        item.author
-      }}
-      genre {{ item.genre }}
-      <img :src="item.image" :alt="item.name" />
+    <div class="container" v-for="item in discList" :key="item.id">
+      <!-- <div v-for="item in discList" :key="item.id">
+      genre {{ item.genre }} -->
+      <div class="row row-cols-5 justify-content-evenly align-items-center">
+        <div class="card-container">
+          <img :src="item.poster" :alt="item.name" />
+          <h2>{{ item.title }}</h2>
+          <h3>{{ item.author }}</h3>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -36,4 +40,39 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.card-container {
+  width: 150px;
+  height: 200px;
+  background-color: #2e3a46;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+  margin-top: 15px;
+  margin-left: 25px;
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 10px;
+  font-size: 18px;
+}
+
+h3 {
+  text-align: center;
+  color: #656f73;
+  font-size: 15px;
+}
 </style>

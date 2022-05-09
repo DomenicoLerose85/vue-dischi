@@ -1,11 +1,17 @@
 <template>
-  <main></main>
+  <main>
+    <main-grid />
+  </main>
 </template>
 
 <script>
+import MainGrid from "./MainGrid.vue";
+
 export default {
   name: "MainComponent",
-  props: [],
+  components: {
+    MainGrid,
+  },
 };
 </script>
 
@@ -13,7 +19,10 @@ export default {
 @import "@/assets/styles/vars.scss";
 main {
   width: 100%;
-  height: 800px;
+  // height: 800px;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
   background-color: $bg-color;
 }
 </style>
