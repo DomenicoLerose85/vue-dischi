@@ -1,9 +1,11 @@
 <template>
   <div>
-    <div v-for="(item, index) in discList" :key="item.id">
+    <div v-for="item in discList" :key="item.id">
       id {{ item.id }} poster{{ item.poster }} title{{ item.title }} author{{
         item.author
       }}
+      genre {{ item.genre }}
+      <img :src="item.image" :alt="item.name" />
     </div>
   </div>
 </template>
@@ -20,10 +22,15 @@ export default {
     };
   },
   mounted() {
-    axios.get(this.endPoint + "music").then((res) => {
-      console.log(res);
-      this.discList = res.data;
-    });
+    axios
+      .get(this.endPoint + "music")
+      .then((res) => {
+        console.log(res);
+        this.discList = res.data.response;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
 </script>
